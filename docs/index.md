@@ -4,8 +4,8 @@
   <p class="hero-lead">Real meals. Useful notes. Recipes we want to cook again.</p>
   <p>No endless scrolling to find the ingredients. Just good food, clear steps, and room to make each dish our own.</p>
   <div class="hero-actions">
-    <a class="recipe-button" href="recipes/">Browse recipes →</a>
-    <a class="recipe-button outline" href="dinners/shrimp-pesto-supper/">Tonight's dinner plan</a>
+    <a class="recipe-button" href="recipes/">Browse recipes <span aria-hidden="true">→</span></a>
+    <a class="hero-text-link" href="dinners/shrimp-pesto-supper/">Tonight's dinner plan <span aria-hidden="true">↗</span></a>
   </div>
   <div class="hero-doodle" aria-hidden="true">✳︎  🍃  ✳︎</div>
 </section>
