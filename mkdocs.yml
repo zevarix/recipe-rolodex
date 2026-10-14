@@ -1,0 +1,56 @@
+site_name: Recipe Rolodex
+site_url: https://zevarix.github.io/recipe-rolodex/
+site_description: Real family recipes, saved for the next good dinner.
+repo_url: https://github.com/zevarix/recipe-rolodex
+repo_name: zevarix/recipe-rolodex
+copyright: Copyright © 2026 Zevarix. All rights reserved pending an explicit license.
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+nav:
+  - Home: index.md
+  - Browse recipes: recipes/index.md
+  - Recipes:
+      - Garlic-butter shrimp pesto spaghetti: recipes/garlic-butter-shrimp-pesto-spaghetti.md
+      - Grandpa's Parmesan garlic bread: recipes/grandpas-parmesan-garlic-bread.md
+  - Dinner plans:
+      - Shrimp pesto supper: dinners/shrimp-pesto-supper.md
+  - About: about.md
+
+theme:
+  name: material
+  variant: modern
+  font: false
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+plugins:
+  - search
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra_css:
+  - stylesheets/recipes.css
