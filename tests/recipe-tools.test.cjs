@@ -145,3 +145,31 @@ test("mobile stepper, 1000 stress input, and native printing stay synchronized",
     delete global.window;
   }
 });
+
+test("tag links reveal their native collapsed category without changing the recipe", () => {
+  const { revealCatalogTag } = require("../docs/javascripts/recipe-tools.js");
+  const details = { open: false };
+  let scrollCount = 0;
+  const target = { closest(selector) {
+    assert.equal(selector, "details");
+    return details;
+  }, scrollIntoView() { scrollCount++; } };
+  global.window = { location: { hash: "#tag:course%2Fmains" } };
+  global.document = { getElementById(id) {
+    assert.equal(id, "tag:course/mains");
+    return target;
+  } };
+  try {
+    revealCatalogTag();
+    assert.equal(details.open, true);
+    assert.equal(scrollCount, 1);
+    revealCatalogTag();
+    assert.equal(scrollCount, 1);
+    global.window.location.hash = "#not-a-tag";
+    revealCatalogTag();
+    assert.equal(scrollCount, 1);
+  } finally {
+    delete global.window;
+    delete global.document;
+  }
+});

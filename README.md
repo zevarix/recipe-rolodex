@@ -15,6 +15,15 @@ A public, searchable family recipe collection built from Markdown using [Zensica
 
 Recipes are readable directly in GitHub without building anything. The public website adds search, navigation, responsive recipe cards, and a printer-friendly view.
 
+### A filing cabinet that stays small
+
+The mobile menu contains expandable **Recipes** and **Dinner plans** groups, not hundreds of individual recipe titles. The [Browse recipes](docs/recipes/index.md) landing page links to four focused catalogs: [course](docs/recipes/by-course.md), [mealtime](docs/recipes/by-meal.md), [ingredient](docs/recipes/by-ingredient.md), and [style](docs/recipes/by-style.md). Zensical generates the listings from native tags. The catalogs are collapsible and mapped tags have native Lucide icons. Unmapped future tags get the default icon.
+
+### Drafts (preview only)
+
+Zensical previews drafts stored in the local docs/drafts folder or files named *.draft.md while using zensical serve. Production zensical build excludes them from pages, search, and listings. These paths are gitignored by default because this is a **public GitHub repository**. A draft committed to GitHub would still be publicly visible in source even if excluded from the website. Never force-add private or unapproved material; move a reviewed recipe to a normal docs/recipes/<slug>.md filename before publication.
+
+
 **Filing system:** Every Markdown recipe has native hierarchical tags, such as `Course/Mains`, `Meal/Dinner`, `Ingredient/Seafood`, and `Style/Pesto`. Zensical automatically groups Course, Meal, Ingredient, and Style tags in the [recipe filing cabinet](docs/recipes/index.md). Zensical's native tags plugin automatically generates the [recipe filing cabinet](docs/recipes/index.md); dinner plans use their own [generated index](docs/dinners/index.md). There is no database or hand-maintained per-recipe navigation. Existing URLs stay stable as the collection grows. See [Contributing](CONTRIBUTING.md) for the taxonomy and copyable front matter.
 
 Individual recipes and dinner plans offer touch-friendly decrease/increase serving controls (1–24), optional number entry, and a Print recipe link that opens the browser's native print dialog. The site needs no database, service, or tracking to calculate or print; without JavaScript, original Markdown quantities stay visible. Scaling gives practical kitchen estimates, not changes to food-safety temperatures or cook times.

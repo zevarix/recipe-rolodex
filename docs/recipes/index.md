@@ -4,6 +4,39 @@ Our growing filing cabinet: start with a featured recipe, **browse by course or 
 
 The listings are generated from tags stored in each Markdown recipe. New recipes appear here automatically—no manual card or navigation editing required.
 
+## Browse the filing cabinet
+
+<div class="recipe-grid browse-facets">
+  <a class="recipe-card" href="by-course/">
+    <span class="recipe-card-icon" aria-hidden="true">🍽️</span>
+    <span class="recipe-card-label">THE DISH</span>
+    <strong>By course</strong>
+    <span>Mains, sides, desserts, snacks, and more.</span>
+    <span class="recipe-card-link">Explore courses ↗</span>
+  </a>
+  <a class="recipe-card" href="by-meal/">
+    <span class="recipe-card-icon" aria-hidden="true">☀️</span>
+    <span class="recipe-card-label">THE OCCASION</span>
+    <strong>By mealtime</strong>
+    <span>Breakfast, brunch, lunch, dinner, and anytime.</span>
+    <span class="recipe-card-link">Explore mealtimes ↗</span>
+  </a>
+  <a class="recipe-card" href="by-ingredient/">
+    <span class="recipe-card-icon" aria-hidden="true">🥕</span>
+    <span class="recipe-card-label">WHAT'S IN THE KITCHEN</span>
+    <strong>By ingredient</strong>
+    <span>Seafood, garlic, pasta, bread, and whatever comes next.</span>
+    <span class="recipe-card-link">Explore ingredients ↗</span>
+  </a>
+  <a class="recipe-card" href="by-style/">
+    <span class="recipe-card-icon" aria-hidden="true">✨</span>
+    <span class="recipe-card-label">THE FLAVOR</span>
+    <strong>By style</strong>
+    <span>Pesto and other ways we like to cook.</span>
+    <span class="recipe-card-link">Explore styles ↗</span>
+  </a>
+</div>
+
 ## Start here
 
 <div class="recipe-grid">
@@ -29,9 +62,3 @@ Prefer a whole menu? [Browse all dinner plans](../dinners/index.md), including o
 
 !!! tip "Cooking tonight?"
     Use the site's print command (or your browser's **Print**) for a paper-friendly version of any recipe.
-
-## Browse the filing cabinet
-
-The catalog is automatically grouped by **Course**, **Meal**, **Ingredient**, and **Style**. Choose a label below to find matching recipes—new labels and recipes appear without editing this page.
-
-<!-- material/tags { scope: true } -->

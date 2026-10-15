@@ -7,8 +7,16 @@ This is a curated family collection, but suggestions are welcome through GitHub 
 3. Include a clear title, yield, prep/cook time, ingredients with units, sequential instructions, and a practical note about substitutions or food safety.
 4. Keep the method tested or clearly labeled as a draft. Name purchased components rather than implying they are homemade.
 5. Add one serving-size control panel (recipe-tools, with data-recipe-base-servings) and wrap scalable quantities in a recipe-amount span with data-base and data-unit. Use data-max for ranges, data-plural when needed, data-format=whole for metric gram or garlic values, and data-format=decimal1 for package-specific ounces. Include the matching decrease/increase buttons in the toolbar. Choose a suitable original serving count for each new recipe (1–24), and set both the toolbar's data-recipe-base-servings and the number input's default value to that count. The visible default measurements must match that recipe's baseline, because Markdown remains usable without JavaScript. Never mark temperatures, cooking durations, or food-safety instructions as scalable.
-6. Do **not** add every recipe to `mkdocs.yml` or the Browse page: Zensical tags build those indexes. Link related recipes and dinner plans where useful. Homepage feature cards are intentionally curated rather than exhaustive.
+6. Do **not** list each recipe in `mkdocs.yml` or the Browse page. Zensical builds the Course, Meal, Ingredient, and Style catalog pages automatically. Keep the mobile Recipes accordion bounded to those four browse facets and the featured index. Homepage feature cards are curated rather than exhaustive; link related recipes and dinner plans when useful.
 7. Validate with `python3 tools/validate_recipes.py` and `zensical build --clean`, plus `node --test tests/recipe-tools.test.cjs`.
+
+## Draft previews and category icons
+
+While developing an unreviewed recipe, create a local file under docs/drafts/ or name it <slug>.draft.md. Use zensical serve to preview it before publication. Draft patterns are ignored by Git and excluded from production builds, search, and category listings.
+
+**Public-source warning:** The draft feature does not hide a file that has been committed to the public GitHub repository. Never force-add private, unapproved, or third-party material. Publish by moving or renaming a reviewed recipe to docs/recipes/<slug>.md, completing its filing metadata, validating, and using the normal pull-request workflow.
+
+Zensical maps common categories to built-in Lucide icons through the theme and extra tag configuration. Newly introduced tags work automatically with the default icon; add explicit icon mappings only when a new category's visual distinction is genuinely useful.
 
 ## Filing labels
 
