@@ -29,14 +29,9 @@
   margin: .6rem 0 1.7rem; padding: clamp(1.5rem, 4vw, 2.6rem);
   color: var(--rr-brown);
   border-radius: 1rem;
-  background: radial-gradient(circle at 90% 18%, rgba(243, 206, 148, .45), transparent 38%),
-    radial-gradient(circle at 0 98%, rgba(146, 192, 154, .3), transparent 45%),
-    linear-gradient(120deg, var(--rr-cream), #f4e7cf);
-  border: 1px solid rgba(125, 118, 81, .15);
-}
-[data-md-color-scheme="slate"] .rolodex-hero {
-  background: radial-gradient(circle at 90% 18%, rgba(167, 113, 76, .20), transparent 38%),
-    linear-gradient(135deg, #294438, #29342c);
+  /* A calm, uniform surface in both themes; let the recipe content lead. */
+  background: var(--rr-cream);
+  border: 1px solid var(--rr-border);
 }
 .rolodex-hero .eyebrow,.section-eyebrow {
   text-transform: uppercase; letter-spacing: .16em; font-size: .67rem; font-weight: 750;
