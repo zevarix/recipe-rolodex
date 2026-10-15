@@ -1,3 +1,13 @@
+---
+title: Grandpa's Parmesan Garlic Bread
+description: Rustic Italian garlic bread baked with butter and Parmesan.
+tags:
+  - Sides
+  - Bread
+  - Garlic
+---
+
+
 # Grandpa's Parmesan Garlic Bread
 
 <p class="recipe-intro">A generously buttered rustic Italian loaf with garlic and Parmesan, baked until the middle stays soft and the edges turn golden.</p>

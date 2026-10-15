@@ -9,9 +9,78 @@ from html.parser import HTMLParser
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-RECIPE_FILES = sorted((DOCS / "recipes").glob("*.md"))
+RECIPE_FILES = sorted(p for p in (DOCS / "recipes").rglob("*.md") if p.name != "index.md")
+DINNER_FILES = sorted(p for p in (DOCS / "dinners").rglob("*.md") if p.name != "index.md")
+COURSE_TAGS = {
+    "Mains", "Sides", "Breakfast", "Soups", "Salads",
+    "Desserts", "Baking", "Snacks", "Sauces", "Drinks",
+}
+
 LOCAL_LINKS = re.compile(r"\]\(([^)]+)\)|\bhref=[\"']([^\"']+)[\"']")
 errors = []
+TAG_SPELLINGS = {}
+
+
+def check_filing_metadata(source, kind):
+    """Validate the simple, stable front matter contract for auto-filed recipes."""
+    path = source.relative_to(ROOT)
+    lines = source.read_text(encoding="utf-8").splitlines()
+    if not lines or lines[0] != "---":
+        errors.append(f"{path}: missing YAML front matter")
+        return
+    try:
+        end = lines.index("---", 1)
+    except ValueError:
+        errors.append(f"{path}: missing front matter closing delimiter")
+        return
+    head = lines[1:end]
+    for key in ("title", "description"):
+        values = [line[len(key)+1:].strip() for line in head if line.startswith(key + ":")]
+        if len(values) != 1 or not values[0]:
+            errors.append(f"{path}: require one nonempty {key} value")
+    if head.count("tags:") != 1:
+        errors.append(f"{path}: require one YAML tags list")
+        return
+    tag_start = head.index("tags:")
+    tags = []
+    for line in head[tag_start+1:]:
+        if line and not line[0].isspace():
+            break
+        if not line.strip():
+            continue
+        if not line.startswith("  - "):
+            errors.append(f"{path}: use a two-space-indented YAML tag list")
+            return
+        tag = line[4:].strip().strip(chr(34)).strip(chr(39))
+        if not tag or tag != tag.strip() or "/" in tag or any(ord(c) < 32 for c in tag):
+            errors.append(f"{path}: invalid tag label {tag!r}")
+            return
+        tags.append(tag)
+    if not tags:
+        errors.append(f"{path}: at least one tag required")
+        return
+    if len({t.casefold() for t in tags}) != len(tags):
+        errors.append(f"{path}: duplicate case-insensitive tags")
+    for tag in tags:
+        key = tag.casefold()
+        if key in TAG_SPELLINGS and TAG_SPELLINGS[key] != tag:
+            errors.append(f"{path}: use established tag spelling {TAG_SPELLINGS[key]!r}, not {tag!r}")
+        else:
+            TAG_SPELLINGS[key] = tag
+    if kind == "recipe":
+        courses = [t for t in tags if t in COURSE_TAGS]
+        if len(courses) != 1:
+            errors.append(f"{path}: exactly one course tag required (choose from {sorted(COURSE_TAGS)})")
+        if len(tags) < 2:
+            errors.append(f"{path}: include a searchable ingredient or style tag")
+        if "Dinner Plans" in tags:
+            errors.append(f"{path}: Dinner Plans tag is reserved for meal collections")
+    else:
+        if "Dinner Plans" not in tags:
+            errors.append(f"{path}: dinner plan needs the Dinner Plans filing tag")
+        if any(t in COURSE_TAGS for t in tags):
+            errors.append(f"{path}: dinner plans must not claim a recipe course tag")
+
 
 class QuantitySpans(HTMLParser):
     def __init__(self):
@@ -60,8 +129,7 @@ def check_scale_metadata(source):
             errors.append(f"{path}: invalid amount metadata in span #{index}")
 
 for recipe in RECIPE_FILES:
-    if recipe.name == "index.md":
-        continue
+    check_filing_metadata(recipe, "recipe")
     content = recipe.read_text(encoding="utf-8")
     for heading in ("# ", "## Ingredients", "## Instructions"):
         if heading not in content:
@@ -71,7 +139,9 @@ for recipe in RECIPE_FILES:
 
     check_scale_metadata(recipe)
 
-check_scale_metadata(DOCS / "dinners/shrimp-pesto-supper.md")
+for dinner in DINNER_FILES:
+    check_filing_metadata(dinner, "dinner")
+    check_scale_metadata(dinner)
 
 for source in DOCS.rglob("*.md"):
     content = source.read_text(encoding="utf-8")
@@ -98,7 +168,16 @@ for required in ("mkdocs.yml", "requirements.txt", "docs/stylesheets/recipes.css
     if not (ROOT / required).is_file():
         errors.append(f"Missing {required}")
 
-if "javascripts/recipe-tools.js" not in (ROOT / "mkdocs.yml").read_text(encoding="utf-8"):
+config = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
+if not re.search(r"(?m)^  - tags\s*$", config):
+    errors.append("Zensical native tags plugin must be enabled")
+for page, directive in (
+    (DOCS / "recipes/index.md", "<!-- material/tags"),
+    (DOCS / "dinners/index.md", "<!-- material/tags"),
+):
+    if not page.is_file() or directive not in page.read_text(encoding="utf-8"):
+        errors.append(f"Missing auto-generated tag listing in {page.relative_to(ROOT)}")
+if "javascripts/recipe-tools.js" not in config:
     errors.append("Zensical configuration must load the recipe tools JavaScript")
 if not (DOCS / "javascripts/recipe-tools.js").is_file():
     errors.append("Missing recipe tools JavaScript")
@@ -108,4 +187,6 @@ if errors:
     for error in errors:
         print(" -", error)
     sys.exit(1)
-print(f"PASS: {len(RECIPE_FILES) - 1} recipes, {len(list(DOCS.rglob('*.md')))} Markdown pages, and local links checked")
+print(f"PASS: {len(RECIPE_FILES)} recipes, {len(DINNER_FILES)} dinner plans, "
+      f"{len(list(DOCS.rglob('*.md')))} Markdown pages; filing tags, serving data, "
+      "and local links checked")

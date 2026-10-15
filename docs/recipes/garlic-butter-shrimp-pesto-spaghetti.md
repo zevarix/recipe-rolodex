@@ -1,3 +1,15 @@
+---
+title: Garlic-Butter Shrimp Pesto Spaghetti
+description: Jumbo garlic-butter shrimp over basil pesto spaghetti.
+tags:
+  - Mains
+  - Seafood
+  - Pasta
+  - Garlic
+  - Pesto
+---
+
+
 # Garlic-Butter Shrimp Pesto Spaghetti
 
 <p class="recipe-intro">Big, juicy garlic-butter shrimp over spaghetti tossed with basil pesto. Restaurant-style flavor without a complicated sauce.</p>
