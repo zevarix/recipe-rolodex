@@ -18,6 +18,7 @@ class QuantitySpans(HTMLParser):
         super().__init__()
         self.quantities = []
         self.toolbars = []
+        self.counter_buttons = []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -26,6 +27,8 @@ class QuantitySpans(HTMLParser):
             self.quantities.append(attrs)
         if tag == "div" and "recipe-tools" in classes:
             self.toolbars.append(attrs)
+        if tag == "button" and "recipe-stepper" in classes:
+            self.counter_buttons.append(attrs)
 
 def check_scale_metadata(source):
     path = source.relative_to(ROOT)
@@ -37,6 +40,10 @@ def check_scale_metadata(source):
         errors.append(f"{path}: serving baseline must match original six-serving quantities")
     if not tags.quantities:
         errors.append(f"{path}: no tagged scalable ingredient amounts")
+    controls = [set(entry.get("class", "").split()) for entry in tags.counter_buttons]
+    for expected in ("recipe-stepper-minus", "recipe-stepper-plus"):
+        if sum(expected in classes for classes in controls) != 1:
+            errors.append(f"{path}: expected one {expected} button")
     for index, tags_data in enumerate(tags.quantities, 1):
         try:
             base = float(tags_data.get("data-base", ""))
@@ -47,7 +54,7 @@ def check_scale_metadata(source):
                 raise ValueError("maximum must be at least base")
             if not tags_data.get("data-unit"):
                 raise ValueError("unit is required")
-            if tags_data.get("data-format", "fraction") not in ("whole", "fraction"):
+            if tags_data.get("data-format", "fraction") not in ("whole", "fraction", "decimal1"):
                 raise ValueError("unrecognized format")
         except ValueError:
             errors.append(f"{path}: invalid amount metadata in span #{index}")

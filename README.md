@@ -15,7 +15,7 @@ A public, searchable family recipe collection built from Markdown using [Zensica
 
 Recipes are readable directly in GitHub without building anything. The public website adds search, navigation, responsive recipe cards, and a printer-friendly view.
 
-Individual recipes and dinner plans offer a small Servings control (1–24) that scales tagged measurements in the Markdown and a Print recipe control that opens the browser's native print dialog. The site needs no database, service, or tracking to calculate or print; without JavaScript, original Markdown quantities stay visible. Scaling gives practical kitchen estimates, not changes to food-safety temperatures or cook times.
+Individual recipes and dinner plans offer touch-friendly decrease/increase serving controls (1–24), optional number entry, and a Print recipe link that opens the browser's native print dialog. The site needs no database, service, or tracking to calculate or print; without JavaScript, original Markdown quantities stay visible. Scaling gives practical kitchen estimates, not changes to food-safety temperatures or cook times.
 
 ## Local preview
 

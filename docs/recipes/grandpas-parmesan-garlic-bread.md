@@ -10,18 +10,23 @@
 </div>
 
 <div class="recipe-tools" data-recipe-base-servings="6" hidden>
-  <label class="recipe-servings-field" for="recipe-serving-count">Servings
-    <input id="recipe-serving-count" class="recipe-servings-input" type="number" inputmode="numeric" min="1" max="24" step="1" value="6">
-  </label>
-  <span class="recipe-serving-summary" aria-live="polite">Ingredient amounts for 6 servings</span>
-  <button class="recipe-print-button" type="button">Print recipe <span aria-hidden="true">↗</span></button>
+  <div class="recipe-servings-control">
+    <label for="recipe-serving-count">Servings</label>
+    <div class="recipe-counter" role="group" aria-label="Adjust servings">
+      <button class="recipe-stepper recipe-stepper-minus" type="button" aria-label="Decrease servings">−</button>
+      <input id="recipe-serving-count" class="recipe-servings-input" type="number" inputmode="numeric" min="1" max="24" step="1" value="6" autocomplete="off">
+      <button class="recipe-stepper recipe-stepper-plus" type="button" aria-label="Increase servings">+</button>
+    </div>
+  </div>
+  <button class="recipe-print-button" type="button">Print recipe <span aria-hidden="true">↗︎</span></button>
+  <p class="recipe-serving-summary" role="status" aria-live="polite">Ingredients for 6 servings · original batch: 6</p>
 </div>
 
 ## Ingredients
 
 - <span class="recipe-amount" data-base="1" data-unit="loaf" data-plural="loaves">1 loaf</span> **rustic Italian bread** (use half if the loaf is unusually large)
 - <span class="recipe-amount" data-base="5" data-unit="tbsp">5 tbsp</span> **softened butter**
-- <span class="recipe-amount" data-base="3" data-max="4" data-unit="clove" data-plural="cloves">3–4 cloves</span> **garlic**, minced
+- <span class="recipe-amount" data-base="3" data-max="4" data-unit="clove" data-plural="cloves" data-format="whole">3–4 cloves</span> **garlic**, minced
 - <span class="recipe-amount" data-base="2" data-unit="tbsp">2 tbsp</span> **grated Parmesan**, including Kraft-style shaker Parmesan
 - **Optional:** Chopped parsley or a pinch of black pepper
 

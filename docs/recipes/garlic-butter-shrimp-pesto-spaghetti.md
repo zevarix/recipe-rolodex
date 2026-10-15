@@ -10,11 +10,16 @@
 </div>
 
 <div class="recipe-tools" data-recipe-base-servings="6" hidden>
-  <label class="recipe-servings-field" for="recipe-serving-count">Servings
-    <input id="recipe-serving-count" class="recipe-servings-input" type="number" inputmode="numeric" min="1" max="24" step="1" value="6">
-  </label>
-  <span class="recipe-serving-summary" aria-live="polite">Ingredient amounts for 6 servings</span>
-  <button class="recipe-print-button" type="button">Print recipe <span aria-hidden="true">↗</span></button>
+  <div class="recipe-servings-control">
+    <label for="recipe-serving-count">Servings</label>
+    <div class="recipe-counter" role="group" aria-label="Adjust servings">
+      <button class="recipe-stepper recipe-stepper-minus" type="button" aria-label="Decrease servings">−</button>
+      <input id="recipe-serving-count" class="recipe-servings-input" type="number" inputmode="numeric" min="1" max="24" step="1" value="6" autocomplete="off">
+      <button class="recipe-stepper recipe-stepper-plus" type="button" aria-label="Increase servings">+</button>
+    </div>
+  </div>
+  <button class="recipe-print-button" type="button">Print recipe <span aria-hidden="true">↗︎</span></button>
+  <p class="recipe-serving-summary" role="status" aria-live="polite">Ingredients for 6 servings · original batch: 6</p>
 </div>
 
 <div class="recipe-note"><strong>The trick:</strong> Sear the shrimp separately, then combine pesto with hot pasta <em>off the heat</em>. That keeps the shrimp tender and the basil fresh.</div>
@@ -22,11 +27,11 @@
 ## Ingredients
 
 - <span class="recipe-amount" data-base="2" data-unit="lb">2 lb</span> **raw jumbo shrimp** (U-15 size), peeled, deveined, tails removed
-- <span class="recipe-amount" data-base="17.6" data-unit="oz">17.6 oz</span> (<span class="recipe-amount" data-base="500" data-unit="g" data-format="whole">500 g</span>) **spaghetti**, such as Garofalo
+- <span class="recipe-amount" data-base="1" data-unit="package">1 package</span> (<span class="recipe-amount" data-base="17.6" data-unit="oz" data-format="decimal1">17.6 oz</span> / <span class="recipe-amount" data-base="500" data-unit="g" data-format="whole">500 g</span>) **spaghetti**, such as Garofalo
 - <span class="recipe-amount" data-base="0.75" data-max="1" data-unit="cup">¾–1 cup</span> **prepared basil pesto**, such as Kirkland Signature
 - <span class="recipe-amount" data-base="3" data-unit="tbsp">3 tbsp</span> **butter**
 - <span class="recipe-amount" data-base="1" data-unit="tbsp">1 tbsp</span> **olive oil**
-- <span class="recipe-amount" data-base="4" data-unit="clove" data-plural="cloves">4 cloves</span> **garlic**, finely minced
+- <span class="recipe-amount" data-base="4" data-unit="clove" data-plural="cloves" data-format="whole">4 cloves</span> **garlic**, finely minced
 - **Black pepper**, to taste
 - **Salt**, for the pasta water
 - <span class="recipe-amount" data-base="1" data-unit="cup">1 cup</span> **pasta cooking water**, reserved before draining

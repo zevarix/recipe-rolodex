@@ -10,11 +10,16 @@
 </div>
 
 <div class="recipe-tools" data-recipe-base-servings="6" hidden>
-  <label class="recipe-servings-field" for="recipe-serving-count">Servings
-    <input id="recipe-serving-count" class="recipe-servings-input" type="number" inputmode="numeric" min="1" max="24" step="1" value="6">
-  </label>
-  <span class="recipe-serving-summary" aria-live="polite">Ingredient amounts for 6 servings</span>
-  <button class="recipe-print-button" type="button">Print recipe <span aria-hidden="true">↗</span></button>
+  <div class="recipe-servings-control">
+    <label for="recipe-serving-count">Servings</label>
+    <div class="recipe-counter" role="group" aria-label="Adjust servings">
+      <button class="recipe-stepper recipe-stepper-minus" type="button" aria-label="Decrease servings">−</button>
+      <input id="recipe-serving-count" class="recipe-servings-input" type="number" inputmode="numeric" min="1" max="24" step="1" value="6" autocomplete="off">
+      <button class="recipe-stepper recipe-stepper-plus" type="button" aria-label="Increase servings">+</button>
+    </div>
+  </div>
+  <button class="recipe-print-button" type="button">Print recipe <span aria-hidden="true">↗︎</span></button>
+  <p class="recipe-serving-summary" role="status" aria-live="polite">Ingredients for 6 servings · original batch: 6</p>
 </div>
 
 <div class="recipe-note"><strong>Menu, not a homemade chowder recipe:</strong> The starter uses refrigerated <em>Clam Shack New England Clam Chowder</em> sold by Costco, in a two-pack of 24 oz tubs. Prepare it according to its package directions.</div>
@@ -27,10 +32,10 @@
 
 ## Shopping and prep list
 
-- <span class="recipe-amount" data-base="17.6" data-unit="oz">17.6 oz</span> spaghetti (the original batch uses one 500 g package)
+- <span class="recipe-amount" data-base="1" data-unit="package">1 package</span> (<span class="recipe-amount" data-base="17.6" data-unit="oz" data-format="decimal1">17.6 oz</span>) spaghetti; Garofalo packs are 500 g each
 - <span class="recipe-amount" data-base="2" data-unit="lb">2 lb</span> raw, peeled and deveined jumbo shrimp
-- <span class="recipe-amount" data-base="0.75" data-max="1" data-unit="cup">¾–1 cup</span> basil pesto; <span class="recipe-amount" data-base="3" data-unit="tbsp">3 tbsp</span> butter; <span class="recipe-amount" data-base="1" data-unit="tbsp">1 tbsp</span> olive oil; <span class="recipe-amount" data-base="4" data-unit="clove" data-plural="cloves">4 cloves</span> garlic
-- <span class="recipe-amount" data-base="1" data-unit="loaf" data-plural="loaves">1 loaf</span> rustic Italian bread; <span class="recipe-amount" data-base="5" data-unit="tbsp">5 tbsp</span> softened butter; <span class="recipe-amount" data-base="3" data-max="4" data-unit="clove" data-plural="cloves">3–4 cloves</span> more garlic; <span class="recipe-amount" data-base="2" data-unit="tbsp">2 tbsp</span> Parmesan
+- <span class="recipe-amount" data-base="0.75" data-max="1" data-unit="cup">¾–1 cup</span> basil pesto; <span class="recipe-amount" data-base="3" data-unit="tbsp">3 tbsp</span> butter; <span class="recipe-amount" data-base="1" data-unit="tbsp">1 tbsp</span> olive oil; <span class="recipe-amount" data-base="4" data-unit="clove" data-plural="cloves" data-format="whole">4 cloves</span> garlic
+- <span class="recipe-amount" data-base="1" data-unit="loaf" data-plural="loaves">1 loaf</span> rustic Italian bread; <span class="recipe-amount" data-base="5" data-unit="tbsp">5 tbsp</span> softened butter; <span class="recipe-amount" data-base="3" data-max="4" data-unit="clove" data-plural="cloves" data-format="whole">3–4 cloves</span> more garlic; <span class="recipe-amount" data-base="2" data-unit="tbsp">2 tbsp</span> Parmesan
 - <span class="recipe-amount" data-base="3" data-unit="cup">3 cups</span> refrigerated chowder (½ cup per guest), sold in 24 oz tubs; open enough tubs to cover the selected servings
 - Black pepper; salt for pasta water; optional lemon juice
 
