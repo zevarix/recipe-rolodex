@@ -88,6 +88,7 @@ class QuantitySpans(HTMLParser):
         self.quantities = []
         self.toolbars = []
         self.counter_buttons = []
+        self.servings_inputs = []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -98,6 +99,8 @@ class QuantitySpans(HTMLParser):
             self.toolbars.append(attrs)
         if tag == "button" and "recipe-stepper" in classes:
             self.counter_buttons.append(attrs)
+        if tag == "input" and "recipe-servings-input" in classes:
+            self.servings_inputs.append(attrs)
 
 def check_scale_metadata(source):
     path = source.relative_to(ROOT)
@@ -105,8 +108,23 @@ def check_scale_metadata(source):
     tags.feed(source.read_text(encoding="utf-8"))
     if len(tags.toolbars) != 1:
         errors.append(f"{path}: expected exactly one serving-size toolbar")
-    elif tags.toolbars[0].get("data-recipe-base-servings") != "6":
-        errors.append(f"{path}: serving baseline must match original six-serving quantities")
+    else:
+        if len(tags.servings_inputs) != 1:
+            errors.append(f"{path}: expected exactly one servings input")
+        else:
+            toolbar = tags.toolbars[0]
+            field = tags.servings_inputs[0]
+            try:
+                baseline = int(toolbar.get("data-recipe-base-servings", ""))
+                initial = int(field.get("value", ""))
+                minimum = int(field.get("min", ""))
+                maximum = int(field.get("max", ""))
+                if not (1 <= minimum <= baseline == initial <= maximum <= 24):
+                    raise ValueError("baseline and input disagree or exceed supported range")
+                if field.get("type") != "number":
+                    raise ValueError("servings input must use type=number")
+            except ValueError:
+                errors.append(f"{path}: invalid serving baseline or input range")
     if not tags.quantities:
         errors.append(f"{path}: no tagged scalable ingredient amounts")
     controls = [set(entry.get("class", "").split()) for entry in tags.counter_buttons]
