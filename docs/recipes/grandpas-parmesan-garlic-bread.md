@@ -42,3 +42,5 @@
 - **Allergens:** Contains wheat and dairy; commercial pesto may also contain nuts.
 
 **Pairs with:** [Garlic-butter shrimp pesto spaghetti](garlic-butter-shrimp-pesto-spaghetti.md).
+
+*Original writing © 2026 Zevarix / Recipe Rolodex · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) · [Attribution guidance](../licensing.md).*

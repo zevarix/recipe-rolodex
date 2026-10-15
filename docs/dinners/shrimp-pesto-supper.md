@@ -51,3 +51,5 @@
 
 !!! note "Keep food safe"
     Keep chilled shrimp and chowder refrigerated until use. Check the chowder's printed use-by date, storage instructions, and allergen information. The packaged starter may contain shellfish, fish, milk, and other allergens; the pasta meal includes shrimp and may contain nuts/dairy through pesto.
+
+*Original writing © 2026 Zevarix / Recipe Rolodex · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) · [Attribution guidance](../licensing.md).*

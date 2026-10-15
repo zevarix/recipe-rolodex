@@ -3,7 +3,7 @@ site_url: https://zevarix.github.io/recipe-rolodex/
 site_description: Real family recipes, saved for the next good dinner.
 repo_url: https://github.com/zevarix/recipe-rolodex
 repo_name: zevarix/recipe-rolodex
-copyright: Copyright © 2026 Zevarix. All rights reserved pending an explicit license.
+copyright: '© 2026 Zevarix / Recipe Rolodex · Original writing CC BY 4.0 · Code MIT · <a href="https://zevarix.github.io/recipe-rolodex/licensing/">Licensing & attribution</a>'
 docs_dir: docs
 site_dir: site
 use_directory_urls: true
@@ -17,6 +17,7 @@ nav:
   - Dinner plans:
       - Shrimp pesto supper: dinners/shrimp-pesto-supper.md
   - About: about.md
+  - Licensing & attribution: licensing.md
 
 theme:
   name: material

@@ -51,3 +51,5 @@
 - **Leftovers:** Refrigerate cooked seafood promptly; reheat thoroughly but gently so the shrimp do not become rubbery.
 
 **Serve with:** [Grandpa's Parmesan garlic bread](grandpas-parmesan-garlic-bread.md) or follow the [full dinner plan](../dinners/shrimp-pesto-supper.md).
+
+*Original writing © 2026 Zevarix / Recipe Rolodex · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) · [Attribution guidance](../licensing.md).*
