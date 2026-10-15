@@ -1,3 +1,10 @@
+---
+title: Shrimp Pesto Supper
+description: A family dinner plan with shrimp pesto spaghetti, garlic bread, and clam chowder.
+tags:
+  - Dinner Plans
+---
+
 # Shrimp Pesto Supper
 
 <p class="recipe-intro">A complete dinner for 4–6: a small bowl of New England clam chowder, garlic-butter shrimp pesto spaghetti, and Grandpa's golden garlic bread.</p>

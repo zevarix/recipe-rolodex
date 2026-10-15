@@ -9,11 +9,13 @@ A public, searchable family recipe collection built from Markdown using [Zensica
 ## Read and contribute
 
 - [Browse recipes](docs/recipes/index.md)
-- [Shrimp pesto dinner plan](docs/dinners/shrimp-pesto-supper.md)
+- [Dinner plan collection](docs/dinners/index.md)
 - [Contributing recipes](CONTRIBUTING.md)
 - [License and attribution guide](docs/licensing.md)
 
 Recipes are readable directly in GitHub without building anything. The public website adds search, navigation, responsive recipe cards, and a printer-friendly view.
+
+**Filing system:** Every Markdown recipe has native hierarchical tags, such as `Course/Mains`, `Meal/Dinner`, `Ingredient/Seafood`, and `Style/Pesto`. Zensical automatically groups Course, Meal, Ingredient, and Style tags in the [recipe filing cabinet](docs/recipes/index.md). Zensical's native tags plugin automatically generates the [recipe filing cabinet](docs/recipes/index.md); dinner plans use their own [generated index](docs/dinners/index.md). There is no database or hand-maintained per-recipe navigation. Existing URLs stay stable as the collection grows. See [Contributing](CONTRIBUTING.md) for the taxonomy and copyable front matter.
 
 Individual recipes and dinner plans offer touch-friendly decrease/increase serving controls (1–24), optional number entry, and a Print recipe link that opens the browser's native print dialog. The site needs no database, service, or tracking to calculate or print; without JavaScript, original Markdown quantities stay visible. Scaling gives practical kitchen estimates, not changes to food-safety temperatures or cook times.
 
