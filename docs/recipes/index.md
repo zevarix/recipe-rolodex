@@ -32,6 +32,6 @@ Prefer a whole menu? [Browse all dinner plans](../dinners/index.md), including o
 
 ## Browse the filing cabinet
 
-Every recipe belongs to one course (such as **Mains** or **Sides**) and can also have ingredient or style tags. Choose a label below to see every matching recipe. The list updates automatically as we cook more.
+The catalog is automatically grouped by **Course**, **Meal**, **Ingredient**, and **Style**. Choose a label below to find matching recipes—new labels and recipes appear without editing this page.
 
-<!-- material/tags { exclude: [Dinner Plans] } -->
+<!-- material/tags { scope: true } -->

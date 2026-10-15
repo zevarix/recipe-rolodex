@@ -2,11 +2,12 @@
 title: Garlic-Butter Shrimp Pesto Spaghetti
 description: Jumbo garlic-butter shrimp over basil pesto spaghetti.
 tags:
-  - Mains
-  - Seafood
-  - Pasta
-  - Garlic
-  - Pesto
+  - Course/Mains
+  - Meal/Dinner
+  - Ingredient/Seafood
+  - Ingredient/Pasta
+  - Ingredient/Garlic
+  - Style/Pesto
 ---
 
 

@@ -42,7 +42,8 @@ theme:
 
 plugins:
   - search
-  - tags
+  - tags:
+      tags_hierarchy: true
 
 markdown_extensions:
   - attr_list

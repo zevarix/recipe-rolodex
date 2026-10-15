@@ -12,37 +12,45 @@ This is a curated family collection, but suggestions are welcome through GitHub 
 
 ## Filing labels
 
-Choose **exactly one course** for each recipe:
+Zensical uses **hierarchical tags**, which act like folders without changing Markdown file paths or public URLs. Choose exactly one primary course:
 
-- Mains
-- Sides
-- Breakfast
-- Soups
-- Salads
-- Desserts
-- Baking
-- Snacks
-- Sauces
-- Drinks
+- `Course/Mains`
+- `Course/Sides`
+- `Course/Soups`
+- `Course/Salads`
+- `Course/Desserts`
+- `Course/Snacks`
+- `Course/Breads`
+- `Course/Sauces`
+- `Course/Drinks`
 
-Add one or more descriptive tags for ingredients, technique, or style. Examples currently in use: Seafood, Pasta, Pesto, Garlic, Bread. Reuse a tag rather than inventing nearly identical spellings. New descriptive tags do not require a configuration change.
+Add zero or more meal occasions:
 
-Example recipe front matter:
+- `Meal/Breakfast`
+- `Meal/Brunch`
+- `Meal/Lunch`
+- `Meal/Dinner`
+- `Meal/Anytime`
+
+Add one or more searchable ingredient/style tags, such as `Ingredient/Seafood`, `Ingredient/Pasta`, `Ingredient/Garlic`, `Ingredient/Bread`, or `Style/Pesto`. New ingredients and styles automatically appear as sections of the filing cabinet. Reuse existing names/capitalization and avoid synonyms that create duplicate filing labels.
+
+Example:
 
 ~~~yaml
 ---
 title: Example Pasta Dish
 description: A short, useful description of what makes the dish good.
 tags:
-  - Mains
-  - Pasta
-  - Garlic
+  - Course/Mains
+  - Meal/Dinner
+  - Ingredient/Pasta
+  - Ingredient/Garlic
 ---
 ~~~
 
-Dinner plans use the same front matter pattern but tag them with **Dinner Plans** instead of a course; they are automatically listed on the dinner plans page. The front matter must be followed by the normal Markdown heading and cooking instructions.
+Dinner plans instead use the reserved `Dinner Plans` tag, so they appear in the automatically generated dinner index rather than the recipe index. The front matter is followed by the normal Markdown heading and cooking instructions.
 
-**Why tag-based filing?** Recipes may fit more than one search label, but each has a single primary course. Moving them into category folders would change URLs, so existing recipes stay at stable paths even when the collection grows.
+**Why hierarchical tags?** They group recipes by Course, Meal, Ingredient, and Style, while allowing the same recipe to be listed under several matching labels. There is one original Markdown file per recipe, and no category-folder moves that would break its URL.
 
 **Public privacy:** Do not include personal addresses, identifiable family details, or unlicensed third-party imagery. Do not copy other authors' recipe text. Recipe inspiration or ingredient sources can be credited with links.
 

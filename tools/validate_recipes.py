@@ -12,9 +12,10 @@ DOCS = ROOT / "docs"
 RECIPE_FILES = sorted(p for p in (DOCS / "recipes").rglob("*.md") if p.name != "index.md")
 DINNER_FILES = sorted(p for p in (DOCS / "dinners").rglob("*.md") if p.name != "index.md")
 COURSE_TAGS = {
-    "Mains", "Sides", "Breakfast", "Soups", "Salads",
-    "Desserts", "Baking", "Snacks", "Sauces", "Drinks",
+    "Mains", "Sides", "Soups", "Salads", "Desserts",
+    "Snacks", "Breads", "Sauces", "Drinks",
 }
+MEAL_TAGS = {"Breakfast", "Brunch", "Lunch", "Dinner", "Anytime"}
 
 LOCAL_LINKS = re.compile(r"\]\(([^)]+)\)|\bhref=[\"']([^\"']+)[\"']")
 errors = []
@@ -52,7 +53,7 @@ def check_filing_metadata(source, kind):
             errors.append(f"{path}: use a two-space-indented YAML tag list")
             return
         tag = line[4:].strip().strip(chr(34)).strip(chr(39))
-        if not tag or tag != tag.strip() or "/" in tag or any(ord(c) < 32 for c in tag):
+        if not tag or tag != tag.strip() or any(ord(c) < 32 for c in tag):
             errors.append(f"{path}: invalid tag label {tag!r}")
             return
         tags.append(tag)
@@ -68,18 +69,27 @@ def check_filing_metadata(source, kind):
         else:
             TAG_SPELLINGS[key] = tag
     if kind == "recipe":
-        courses = [t for t in tags if t in COURSE_TAGS]
-        if len(courses) != 1:
+        facets = {"Course", "Meal", "Ingredient", "Style"}
+        parsed = []
+        for tag in tags:
+            pieces = tag.split("/")
+            if len(pieces) != 2 or pieces[0] not in facets or not pieces[1]:
+                errors.append(f"{path}: use a Course/, Meal/, Ingredient/ or Style/ tag: {tag!r}")
+                continue
+            parsed.append((pieces[0], pieces[1]))
+        courses = [name for facet, name in parsed if facet == "Course"]
+        if len(courses) != 1 or courses[0] not in COURSE_TAGS:
             errors.append(f"{path}: exactly one course tag required (choose from {sorted(COURSE_TAGS)})")
-        if len(tags) < 2:
-            errors.append(f"{path}: include a searchable ingredient or style tag")
-        if "Dinner Plans" in tags:
-            errors.append(f"{path}: Dinner Plans tag is reserved for meal collections")
+        if not any(facet in ("Ingredient", "Style") for facet, _ in parsed):
+            errors.append(f"{path}: include an Ingredient/ or Style/ search tag")
+        for facet, name in parsed:
+            if facet == "Meal" and name not in MEAL_TAGS:
+                errors.append(f"{path}: unknown meal tag {name!r} (choose from {sorted(MEAL_TAGS)})")
     else:
         if "Dinner Plans" not in tags:
             errors.append(f"{path}: dinner plan needs the Dinner Plans filing tag")
-        if any(t in COURSE_TAGS for t in tags):
-            errors.append(f"{path}: dinner plans must not claim a recipe course tag")
+        if any(tag != "Dinner Plans" for tag in tags):
+            errors.append(f"{path}: dinner plans only use their reserved Dinner Plans tag for now")
 
 
 class QuantitySpans(HTMLParser):
@@ -187,7 +197,7 @@ for required in ("mkdocs.yml", "requirements.txt", "docs/stylesheets/recipes.css
         errors.append(f"Missing {required}")
 
 config = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
-if not re.search(r"(?m)^  - tags\s*$", config):
+if not re.search(r"(?m)^  - tags:\s*$", config) or "tags_hierarchy: true" not in config:
     errors.append("Zensical native tags plugin must be enabled")
 for page, directive in (
     (DOCS / "recipes/index.md", "<!-- material/tags"),
