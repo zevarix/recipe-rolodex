@@ -11,7 +11,6 @@
 
 <section class="home-recipes" aria-labelledby="home-recipes-title">
   <header class="home-section-heading">
-    <p class="section-eyebrow">From our kitchen</p>
     <h2 id="home-recipes-title">From the recipe box</h2>
   </header>
   <div class="home-editorial-layout">
