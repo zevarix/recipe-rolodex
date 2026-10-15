@@ -1,43 +1,41 @@
-<section class="rolodex-hero">
-  <p class="eyebrow">A little collection of good dinners</p>
-  <h1>Recipe Rolodex</h1>
-  <p class="hero-lead">Real meals. Useful notes. Recipes we want to cook again.</p>
-  <p>No endless scrolling to find the ingredients. Just good food, clear steps, and room to make each dish our own.</p>
+<section class="rolodex-hero" aria-labelledby="home-hero-title">
+  <p class="eyebrow">A growing recipe box</p>
+  <h1 id="home-hero-title">Recipe Rolodex</h1>
+  <p class="hero-lead">Good dinners, written down.</p>
+  <p class="hero-copy">Butter-basted cod, pesto pasta, and Grandpa's garlic bread—recipes with the little details worth keeping for next time.</p>
   <div class="hero-actions">
     <a class="recipe-button" href="recipes/">Browse recipes <span aria-hidden="true">→</span></a>
-    <a class="hero-text-link" href="dinners/shrimp-pesto-supper/">Tonight's dinner plan <span aria-hidden="true">↗</span></a>
+    <a class="hero-text-link" href="dinners/">Dinner plans <span aria-hidden="true">↗</span></a>
   </div>
-  <div class="hero-doodle" aria-hidden="true">✳︎  🍃  ✳︎</div>
 </section>
 
-<div class="section-eyebrow">From our kitchen</div>
-
-## On the recipe cards
-
-<div class="recipe-grid">
-  <a class="recipe-card" href="recipes/garlic-butter-shrimp-pesto-spaghetti/">
-    <span class="recipe-card-icon" aria-hidden="true">🍤</span>
-    <span class="recipe-card-label">MAIN · 4–6 SERVINGS</span>
-    <strong>Garlic-Butter Shrimp Pesto Spaghetti</strong>
-    <span>Juicy jumbo shrimp with silky, basil-rich pasta.</span>
-    <span class="recipe-card-link">Read the recipe ↗</span>
-  </a>
-  <a class="recipe-card" href="recipes/grandpas-parmesan-garlic-bread/">
-    <span class="recipe-card-icon" aria-hidden="true">🥖</span>
-    <span class="recipe-card-label">SIDE · 10–12 MIN BAKE</span>
-    <strong>Grandpa's Parmesan Garlic Bread</strong>
-    <span>Rustic Italian bread, good butter, and plenty of garlic.</span>
-    <span class="recipe-card-link">Read the recipe ↗</span>
-  </a>
-  <a class="recipe-card" href="dinners/shrimp-pesto-supper/">
-    <span class="recipe-card-icon" aria-hidden="true">🍲</span>
-    <span class="recipe-card-label">DINNER PLAN · 40–50 MIN</span>
-    <strong>The Shrimp Pesto Supper</strong>
-    <span>Chowder first, pasta next, hot garlic bread on the side.</span>
-    <span class="recipe-card-link">See the menu ↗</span>
-  </a>
-</div>
-
-<div class="recipe-note">
-  <strong>Made for real kitchens.</strong> Every recipe has a printable layout and a shopping-friendly ingredients list. Search from the top of the page or start with <a href="recipes/">the recipe index</a>.
-</div>
+<section class="home-recipes" aria-labelledby="home-recipes-title">
+  <header class="home-section-heading">
+    <p class="section-eyebrow">From our kitchen</p>
+    <h2 id="home-recipes-title">From the recipe box</h2>
+  </header>
+  <div class="home-editorial-layout">
+    <article class="home-feature">
+      <p class="home-overline">A complete dinner · Serves 4–6</p>
+      <h3><a href="dinners/cowboy-butter-cod-dinner/">Cowboy Butter Cod Dinner</a></h3>
+      <p class="home-feature-copy">Shallot-seasoned cod, roasted squash and broccoli, and asparagus finished in the buttery skillet. Start the vegetables first; save the fish for last.</p>
+      <a class="home-story-link" href="dinners/cowboy-butter-cod-dinner/">Read the dinner plan <span aria-hidden="true">↗</span></a>
+    </article>
+    <section class="home-more" aria-labelledby="home-more-title">
+      <h3 id="home-more-title">Also in the box</h3>
+      <ul class="home-recipe-list">
+        <li>
+          <p class="home-overline">Main · Seafood</p>
+          <h4><a href="recipes/garlic-butter-shrimp-pesto-spaghetti/">Garlic-Butter Shrimp Pesto Spaghetti</a></h4>
+          <p>A little pasta water makes the pesto silky. Add the shrimp at the end.</p>
+        </li>
+        <li>
+          <p class="home-overline">Side · Bread</p>
+          <h4><a href="recipes/grandpas-parmesan-garlic-bread/">Grandpa's Parmesan Garlic Bread</a></h4>
+          <p>A soft middle, golden edges, and plenty of butter and garlic.</p>
+        </li>
+      </ul>
+    </section>
+  </div>
+  <p class="home-footnote">Each recipe has adjustable servings and a print-friendly version. Dinner plans keep the cooking order together.</p>
+</section>
