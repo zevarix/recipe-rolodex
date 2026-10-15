@@ -59,10 +59,9 @@
 .rolodex-hero, .home-recipes { --rr-editorial-accent: #96532e; }
 [data-md-color-scheme="slate"] .rolodex-hero,
 [data-md-color-scheme="slate"] .home-recipes { --rr-editorial-accent: #efb58e; }
-.rolodex-hero .eyebrow, .home-section-heading .section-eyebrow { color: var(--rr-editorial-accent); }
+.rolodex-hero .eyebrow { color: var(--rr-editorial-accent); }
 /* A featured dinner and a small, unboxed recipe index. */
 .home-section-heading { margin: 0 0 .95rem; }
-.home-section-heading .section-eyebrow { margin: 0 0 .2rem; }
 .home-section-heading h2 { margin: 0; color: var(--rr-brown); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.45rem, 3.1vw, 1.95rem); line-height: 1.16; letter-spacing: -.025em; }
 .home-editorial-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(1.1rem, 4vw, 2.4rem); align-items: start; }
 .home-feature { padding: .9rem 0 1.2rem; border-top: 2px solid var(--rr-sage); }
