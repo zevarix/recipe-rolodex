@@ -11,6 +11,7 @@ A public, searchable family recipe collection built from Markdown using [Zensica
 - [Browse recipes](docs/recipes/index.md)
 - [Shrimp pesto dinner plan](docs/dinners/shrimp-pesto-supper.md)
 - [Contributing recipes](CONTRIBUTING.md)
+- [License and attribution guide](docs/licensing.md)
 
 Recipes are readable directly in GitHub without building anything. The public website adds search, navigation, responsive recipe cards, and a printer-friendly view.
 
@@ -39,4 +40,4 @@ Build for publication with `zensical build --clean`. Generated `site/` is ignore
 
 This is **public**. Never include addresses, locations of relatives, family contact details, private photos, private GitHub assets, or personally identifying stories without consent. Food photos may be added after reviewing their rights and content.
 
-Copyright © 2026 Zevarix. **No reuse license has been selected yet.** Visibility on GitHub and the website does not independently grant permission to redistribute or modify the contents. A future MIT code / Creative Commons recipe licensing decision is reserved to the project owner.
+**Copyright © 2026 Zevarix / Recipe Rolodex.** Original recipes, dinner plans, creative site writing, and documentation are licensed [CC BY 4.0](LICENSE-CONTENT.md): sharing and adaptations, including commercial reuse, require appropriate credit, a license link, and an indication of changes. Original website software and technical configuration are licensed separately under [MIT](LICENSE-CODE.txt). See the [scope map](LICENSE.md) and [public attribution guide](docs/licensing.md). Third-party materials, trademarks, and material marked with other rights are excluded from these grants.

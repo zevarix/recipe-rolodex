@@ -15,3 +15,5 @@ The first collection came from a family dinner: jumbo shrimp, basil pesto pasta,
 - Keep family privacy and image rights in mind when adding anything to this public site.
 
 If you have an idea, see [How to contribute](https://github.com/zevarix/recipe-rolodex/blob/main/CONTRIBUTING.md).
+
+Our original recipes and writing are available under [CC BY 4.0](licensing.md), and our website code is licensed under MIT. See [licensing and attribution](licensing.md) for the scope and how to credit the source.

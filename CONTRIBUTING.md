@@ -11,4 +11,4 @@ This is a curated family collection, but suggestions are welcome through GitHub 
 
 **Public privacy:** Do not include personal addresses, identifiable family details, or unlicensed third-party imagery. Do not copy other authors' recipe text. Recipe inspiration or ingredient sources can be credited with links.
 
-**Licensing:** The owner has not selected reuse terms. Please discuss reuse and contribution licensing before submitting substantial third-party material.
+**Licensing contributions:** Original recipe writing and other creative prose contributed to this project must be publishable under [CC BY 4.0](LICENSE-CONTENT.md); original website code and technical implementation under [MIT](LICENSE-CODE.txt). By contributing, you confirm you hold the necessary rights and agree that your contribution may be published under its applicable license. You retain your own copyright; disclose any third-party material or separate attribution. Do not submit other creators' photos, text, software, or branding unless the project has confirmed compatible permission. See the [license scope map](LICENSE.md).
