@@ -80,13 +80,20 @@
 .recipe-facts b { text-transform:uppercase; font-size:.54rem; letter-spacing:.09em; color:var(--rr-copper); }
 /* Progressive enhancement: original Markdown remains readable without JS. */
 .recipe-tools[hidden] { display: none !important; }
-.recipe-tools { display: flex; flex-wrap: wrap; align-items: center; column-gap: 1rem; row-gap: .7rem; border: 1px solid var(--rr-border); border-radius: .65rem; background: var(--rr-paper); padding: .8rem 1rem; margin: .9rem 0 1.5rem; }
-.recipe-servings-field { display: inline-flex; align-items: center; gap: .55rem; font-weight: 700; font-size: .75rem; }
-.recipe-servings-input { box-sizing: border-box; width: 4.3rem; max-width: 100%; padding: .4rem .5rem; border: 1px solid var(--rr-border); border-radius: .35rem; background: var(--md-default-bg-color); color: var(--md-default-fg-color); font: inherit; font-size: 1rem; font-variant-numeric: tabular-nums; text-align: center; }
-.recipe-serving-summary { flex: 1 1 9rem; color: var(--md-default-fg-color--light); font-size: .7rem; line-height: 1.4; }
-.recipe-print-button { appearance: none; padding: .45rem .1rem; border: 0; border-bottom: 1px solid currentColor; background: transparent; color: var(--rr-sage); font-family: Georgia, 'Times New Roman', serif; font-size: .82rem; font-style: italic; font-weight: 700; line-height: 1.2; cursor: pointer; }
+.recipe-tools { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: .35rem 1rem; border: 1px solid var(--rr-border); border-radius: .65rem; background: var(--rr-paper); padding: .75rem .9rem; margin: .9rem 0 1.5rem; }
+.recipe-servings-control { display: flex; align-items: center; gap: .7rem; min-width: 0; }
+.recipe-servings-control label { font-weight: 700; font-size: .75rem; }
+.recipe-counter { display: inline-flex; align-items: stretch; border: 1px solid var(--rr-border); border-radius: .55rem; background: var(--md-default-bg-color); overflow: hidden; flex-shrink: 0; }
+.recipe-stepper { appearance: none; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; border: 0; padding: 0; font-size: 1.22rem; font-weight: 500; color: var(--md-default-fg-color); background: transparent; cursor: pointer; }
+.recipe-stepper:hover:not(:disabled) { background: var(--rr-cream); }
+.recipe-stepper:disabled { opacity: .35; cursor: default; }
+.recipe-servings-input { box-sizing: border-box; width: 3.1rem; min-height: 44px; padding: .3rem 0; border: 0; border-left: 1px solid var(--rr-border); border-right: 1px solid var(--rr-border); border-radius: 0; background: transparent; color: var(--md-default-fg-color); font-size: 1rem; font-variant-numeric: tabular-nums; text-align: center; appearance: textfield; -moz-appearance: textfield; }
+.recipe-servings-input::-webkit-inner-spin-button, .recipe-servings-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.recipe-serving-summary { grid-column: 1 / -1; grid-row: 2; margin: 0; color: var(--md-default-fg-color--light); font-size: .68rem; line-height: 1.35; }
+.recipe-print-button { grid-column: 2; grid-row: 1; justify-self: end; appearance: none; min-height: 44px; padding: .55rem 0; border: 0; border-bottom: 1px solid currentColor; background: transparent; color: var(--rr-sage); font-family: Georgia, 'Times New Roman', serif; font-size: .82rem; font-style: italic; font-weight: 700; line-height: 1.2; white-space: nowrap; cursor: pointer; }
+.recipe-print-button span { font-family: Helvetica, Arial, sans-serif; font-style: normal; }
 .recipe-print-button:hover { color: var(--rr-copper); }
-.recipe-tools :is(button, input):focus-visible { outline: 2px solid var(--rr-copper); outline-offset: 3px; }
+.recipe-tools :is(button, input):focus-visible { outline: 2px solid var(--rr-copper); outline-offset: -3px; }
 .recipe-amount { white-space: nowrap; font-variant-numeric: tabular-nums; }
 [data-md-color-scheme="slate"] .recipe-print-button { color: #acd5b7; }
 [data-md-color-scheme="slate"] .recipe-print-button:hover { color: #f0bb8d; }
@@ -95,10 +102,18 @@
   .rolodex-hero { padding:1.45rem; }
   .rolodex-hero .hero-doodle { display:none; }
   .recipe-facts span { flex: 1 1 calc(50% - .6rem); }
+  .recipe-tools { gap: .3rem .65rem; }
+  .recipe-servings-control { grid-column: 1 / -1; grid-row: 1; justify-content: space-between; }
+  .recipe-serving-summary { grid-column: 1; grid-row: 2; }
+  .recipe-print-button { grid-column: 2; grid-row: 2; }
+}
+@media (max-width: 23rem) {
+  .recipe-serving-summary { grid-column: 1 / -1; grid-row: 2; }
+  .recipe-print-button { grid-column: 1 / -1; grid-row: 3; }
 }
 @media print {
   .recipe-tools { border: 0 !important; background: transparent !important; padding: 0 !important; margin: .5em 0 1em !important; display: block !important; }
-  .recipe-servings-field, .recipe-print-button { display: none !important; }
+  .recipe-servings-control, .recipe-print-button { display: none !important; }
   .recipe-serving-summary { display: block !important; color: #333 !important; font-size: 9pt !important; }
   .md-header,.md-tabs,.md-sidebar,.md-footer,.md-top,.md-search,.md-content__button,
   .md-source,.md-nav,.md-dialog,.md-typeset .headerlink { display:none !important; }
