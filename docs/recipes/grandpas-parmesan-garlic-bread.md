@@ -3,18 +3,26 @@
 <p class="recipe-intro">A generously buttered rustic Italian loaf with garlic and Parmesan, baked until the middle stays soft and the edges turn golden.</p>
 
 <div class="recipe-facts">
-  <span><b>Serves</b> 4–6</span>
+  <span><b>Original yield</b> 4–6</span>
   <span><b>Prep</b> 5 min</span>
   <span><b>Bake</b> 10–12 min</span>
   <span><b>Oven</b> 400°F</span>
 </div>
 
+<div class="recipe-tools" data-recipe-base-servings="6" hidden>
+  <label class="recipe-servings-field" for="recipe-serving-count">Servings
+    <input id="recipe-serving-count" class="recipe-servings-input" type="number" inputmode="numeric" min="1" max="24" step="1" value="6">
+  </label>
+  <span class="recipe-serving-summary" aria-live="polite">Ingredient amounts for 6 servings</span>
+  <button class="recipe-print-button" type="button">Print recipe <span aria-hidden="true">↗</span></button>
+</div>
+
 ## Ingredients
 
-- **1 rustic Italian loaf** (use half if the loaf is unusually large)
-- **5 tbsp softened butter**
-- **3–4 cloves garlic**, minced
-- **2 tbsp grated Parmesan**, including Kraft-style shaker Parmesan
+- <span class="recipe-amount" data-base="1" data-unit="loaf" data-plural="loaves">1 loaf</span> **rustic Italian bread** (use half if the loaf is unusually large)
+- <span class="recipe-amount" data-base="5" data-unit="tbsp">5 tbsp</span> **softened butter**
+- <span class="recipe-amount" data-base="3" data-max="4" data-unit="clove" data-plural="cloves">3–4 cloves</span> **garlic**, minced
+- <span class="recipe-amount" data-base="2" data-unit="tbsp">2 tbsp</span> **grated Parmesan**, including Kraft-style shaker Parmesan
 - **Optional:** Chopped parsley or a pinch of black pepper
 
 ## Instructions

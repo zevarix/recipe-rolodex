@@ -9,6 +9,7 @@ on:
       - "mkdocs.yml"
       - "requirements.txt"
       - "tools/validate_recipes.py"
+      - "tests/recipe-tools.test.cjs"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -39,6 +40,8 @@ jobs:
         run: python -m pip install -r requirements.txt
       - name: Validate recipe structure
         run: python tools/validate_recipes.py
+      - name: Test serving sizes and native print JS
+        run: node --test tests/recipe-tools.test.cjs
       - name: Build static site
         run: zensical build --clean
       - name: Configure GitHub Pages

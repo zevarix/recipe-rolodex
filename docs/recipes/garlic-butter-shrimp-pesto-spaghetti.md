@@ -3,34 +3,42 @@
 <p class="recipe-intro">Big, juicy garlic-butter shrimp over spaghetti tossed with basil pesto. Restaurant-style flavor without a complicated sauce.</p>
 
 <div class="recipe-facts">
-  <span><b>Serves</b> 4–6</span>
+  <span><b>Original yield</b> 4–6</span>
   <span><b>Prep</b> 15 min</span>
   <span><b>Cook</b> 15–20 min</span>
   <span><b>Difficulty</b> Easy</span>
+</div>
+
+<div class="recipe-tools" data-recipe-base-servings="6" hidden>
+  <label class="recipe-servings-field" for="recipe-serving-count">Servings
+    <input id="recipe-serving-count" class="recipe-servings-input" type="number" inputmode="numeric" min="1" max="24" step="1" value="6">
+  </label>
+  <span class="recipe-serving-summary" aria-live="polite">Ingredient amounts for 6 servings</span>
+  <button class="recipe-print-button" type="button">Print recipe <span aria-hidden="true">↗</span></button>
 </div>
 
 <div class="recipe-note"><strong>The trick:</strong> Sear the shrimp separately, then combine pesto with hot pasta <em>off the heat</em>. That keeps the shrimp tender and the basil fresh.</div>
 
 ## Ingredients
 
-- **2 lb raw jumbo shrimp** (U-15 size), peeled, deveined, tails removed
-- **17.6 oz (500 g) spaghetti**, such as Garofalo
-- **¾–1 cup prepared basil pesto**, such as Kirkland Signature
-- **3 tbsp butter**
-- **1 tbsp olive oil**
-- **4 cloves garlic**, finely minced
+- <span class="recipe-amount" data-base="2" data-unit="lb">2 lb</span> **raw jumbo shrimp** (U-15 size), peeled, deveined, tails removed
+- <span class="recipe-amount" data-base="17.6" data-unit="oz">17.6 oz</span> (<span class="recipe-amount" data-base="500" data-unit="g" data-format="whole">500 g</span>) **spaghetti**, such as Garofalo
+- <span class="recipe-amount" data-base="0.75" data-max="1" data-unit="cup">¾–1 cup</span> **prepared basil pesto**, such as Kirkland Signature
+- <span class="recipe-amount" data-base="3" data-unit="tbsp">3 tbsp</span> **butter**
+- <span class="recipe-amount" data-base="1" data-unit="tbsp">1 tbsp</span> **olive oil**
+- <span class="recipe-amount" data-base="4" data-unit="clove" data-plural="cloves">4 cloves</span> **garlic**, finely minced
 - **Black pepper**, to taste
 - **Salt**, for the pasta water
-- **1 cup pasta cooking water**, reserved before draining
-- **Optional:** 1–2 tsp bottled lemon juice, and grated Parmesan to finish
+- <span class="recipe-amount" data-base="1" data-unit="cup">1 cup</span> **pasta cooking water**, reserved before draining
+- **Optional:** <span class="recipe-amount" data-base="1" data-max="2" data-unit="tsp">1–2 tsp</span> bottled lemon juice, and grated Parmesan to finish
 
 ## Instructions
 
 1. **Prepare the shrimp.** Peel, devein, and remove the tails. Pat the shrimp dry with paper towels.
-2. **Cook the pasta.** Bring a large pot of salted water to a boil. Cook the spaghetti to al dente following the package directions. Before draining, reserve 1 cup of hot pasta water. Do not rinse the spaghetti.
-3. **Sear in batches.** Heat olive oil and some butter over medium-high heat in a large skillet. Cook shrimp in two or three batches so they don't steam. Jumbo shrimp generally take about 2–3 minutes per side, depending on size.
+2. **Cook the pasta.** Bring a large pot of salted water to a boil. Cook the spaghetti to al dente following the package directions. Before draining, reserve the amount of hot pasta water shown in the ingredients. Do not rinse the spaghetti.
+3. **Sear in batches.** Heat olive oil and some butter over medium-high heat in a large skillet. Cook shrimp in batches as needed so they don't steam. Jumbo shrimp generally take about 2–3 minutes per side, depending on size.
 4. **Add garlic late.** Add a portion of the minced garlic toward the end of each batch, just long enough to become fragrant without burning. Use the remaining butter across batches. Transfer the cooked shrimp to a clean plate. Cook until opaque and **145°F internally**.
-5. **Make the sauce off the heat.** Toss drained spaghetti with ¾ cup pesto and about ¼ cup reserved pasta water. Add more pesto or water until the pasta is glossy and evenly coated.
+5. **Make the sauce off the heat.** Toss drained spaghetti with most of the measured pesto and a splash of the reserved pasta water. Add more pesto or water until the pasta is glossy and evenly coated.
 6. **Finish and serve.** Gently fold in the shrimp. Add black pepper, taste before salting, and add a tiny splash of lemon juice if desired. Top with Parmesan if you like.
 
 ## Kitchen notes

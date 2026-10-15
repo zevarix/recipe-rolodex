@@ -14,15 +14,18 @@ A public, searchable family recipe collection built from Markdown using [Zensica
 
 Recipes are readable directly in GitHub without building anything. The public website adds search, navigation, responsive recipe cards, and a printer-friendly view.
 
+Individual recipes and dinner plans offer a small Servings control (1–24) that scales tagged measurements in the Markdown and a Print recipe control that opens the browser's native print dialog. The site needs no database, service, or tracking to calculate or print; without JavaScript, original Markdown quantities stay visible. Scaling gives practical kitchen estimates, not changes to food-safety temperatures or cook times.
+
 ## Local preview
 
-Use Python 3.11+ and a virtual environment, then:
+Use Python 3.11+, Node.js 20+ (for local JavaScript tests), and a virtual environment, then:
 
 ```sh
 python3 -m venv .venv
 . .venv/bin/activate
 pip install -r requirements.txt
 python3 tools/validate_recipes.py
+node --test tests/recipe-tools.test.cjs
 zensical serve
 ```
 
@@ -30,7 +33,7 @@ Build for publication with `zensical build --clean`. Generated `site/` is ignore
 
 ## Publishing and CI relevance
 
-`.github/workflows/pages.yml` builds and publishes to GitHub Pages **only** on `main` changes to `docs/**`, `mkdocs.yml`, `requirements.txt`, `tools/validate_recipes.py` or the publication workflow, plus manual dispatch. Unrelated root metadata changes do not consume a Pages build. A single job validates content, builds once, and deploys only if those checks succeed. No background schedule, extra test matrix, or third-party publication service. Initial validation is local before publishing. When this workflow changes, review relevance, skipped/failed behavior, and runner time before merging.
+`.github/workflows/pages.yml` builds and publishes to GitHub Pages **only** on `main` changes to `docs/**`, `mkdocs.yml`, `requirements.txt`, `tools/validate_recipes.py` or the publication workflow, plus manual dispatch. Unrelated root metadata changes do not consume a Pages build. A single job validates content, tests the dependency-free recipe JavaScript, builds once, and deploys only if those checks succeed. No background schedule, extra test matrix, or third-party publication service. Initial validation is local before publishing. When this workflow changes, review relevance, skipped/failed behavior, and runner time before merging.
 
 ## Privacy and licensing
 

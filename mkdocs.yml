@@ -54,3 +54,6 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/recipes.css
+
+extra_javascript:
+  - javascripts/recipe-tools.js
