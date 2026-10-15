@@ -1,5 +1,5 @@
 <section class="rolodex-hero" aria-labelledby="home-hero-title">
-  <p class="eyebrow">A growing collection from our kitchen</p>
+  <p class="eyebrow">A growing recipe box</p>
   <h1 id="home-hero-title">Recipe Rolodex</h1>
   <p class="hero-lead">Good dinners, written down.</p>
   <p class="hero-copy">Butter-basted cod, pesto pasta, and Grandpa's garlic bread—recipes with the little details worth keeping for next time.</p>
