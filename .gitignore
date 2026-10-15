@@ -4,3 +4,7 @@ __pycache__/
 *.pyc
 .DS_Store
 .cache/
+# Never accidentally commit unfinished recipe drafts to this public repository.
+docs/drafts/
+docs/*.draft.md
+docs/**/*.draft.md

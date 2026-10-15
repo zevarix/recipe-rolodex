@@ -154,14 +154,39 @@
     });
   }
 
+  // Native category listings sit inside collapsible details. A tag link to
+  // #tag:course/mains must reveal its hidden section on Safari and other browsers.
+  function revealCatalogTag() {
+    if (typeof window === "undefined" || typeof document === "undefined") return;
+    const hash = window.location && window.location.hash;
+    if (!hash || !hash.startsWith("#tag:")) return;
+    let id;
+    try { id = decodeURIComponent(hash.slice(1)); }
+    catch { return; }
+    const target = document.getElementById(id);
+    if (!target) return;
+    const details = target.closest("details");
+    if (!details) return;
+    if (!details.open) {
+      details.open = true;
+      if (typeof target.scrollIntoView === "function") {
+        target.scrollIntoView({ block: "start" });
+      }
+    }
+  }
+
   if (typeof module !== "undefined" && module.exports) {
-    module.exports = { formatQuantity, scaledAmountText, clampServing, initRecipeTools };
+    module.exports = { formatQuantity, scaledAmountText, clampServing, initRecipeTools, revealCatalogTag };
   }
   if (typeof document !== "undefined") {
+    const initialize = () => { initRecipeTools(); revealCatalogTag(); };
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initRecipeTools, { once: true });
+      document.addEventListener("DOMContentLoaded", initialize, { once: true });
     } else {
-      initRecipeTools();
+      initialize();
+    }
+    if (typeof window !== "undefined" && typeof window.addEventListener === "function") {
+      window.addEventListener("hashchange", revealCatalogTag);
     }
   }
 })();

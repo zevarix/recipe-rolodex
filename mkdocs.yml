@@ -6,12 +6,23 @@ repo_name: zevarix/recipe-rolodex
 copyright: '© 2026 Zevarix / Recipe Rolodex · Original writing CC BY 4.0 · Code MIT · <a href="https://zevarix.github.io/recipe-rolodex/licensing/">Licensing & attribution</a>'
 docs_dir: docs
 site_dir: site
+# Public GitHub sources are visible to everyone; local drafts are also gitignored.
+# Drafts are included by 'zensical serve' but not in published builds.
+draft_docs: |
+  /drafts/
+  *.draft.md
 use_directory_urls: true
 
 nav:
   - Home: index.md
-  - Browse recipes: recipes/index.md
-  - Dinner plans: dinners/index.md
+  - Recipes:
+      - Browse recipes: recipes/index.md
+      - By course: recipes/by-course.md
+      - By mealtime: recipes/by-meal.md
+      - By ingredient: recipes/by-ingredient.md
+      - By style: recipes/by-style.md
+  - Dinner plans:
+      - Browse dinner plans: dinners/index.md
   - About: about.md
   - Licensing & attribution: licensing.md
 
@@ -19,6 +30,24 @@ theme:
   name: material
   variant: modern
   font: false
+  icon:
+    tag:
+      default: lucide/tag
+      course: lucide/utensils
+      mains: lucide/cooking-pot
+      sides: lucide/salad
+      desserts: lucide/cake-slice
+      snacks: lucide/cookie
+      breakfast: lucide/sunrise
+      lunch: lucide/sun
+      dinner: lucide/moon
+      ingredient: lucide/carrot
+      seafood: lucide/fish
+      bread: lucide/wheat
+      meal: lucide/clock
+      style: lucide/sparkles
+      pesto: lucide/leaf
+      plans: lucide/clipboard-list
   features:
     - navigation.sections
     - navigation.top
@@ -44,12 +73,34 @@ plugins:
   - search
   - tags:
       tags_hierarchy: true
+      listings_toc: false
 
 markdown_extensions:
   - attr_list
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+
+# Tag icons are presentational; the taxonomy and labels remain native Zensical tags.
+extra:
+  tags:
+    Course: course
+    Course/Mains: mains
+    Course/Sides: sides
+    Course/Desserts: desserts
+    Course/Snacks: snacks
+    Meal: meal
+    Meal/Breakfast: breakfast
+    Meal/Brunch: breakfast
+    Meal/Lunch: lunch
+    Meal/Dinner: dinner
+    Meal/Anytime: meal
+    Ingredient: ingredient
+    Ingredient/Seafood: seafood
+    Ingredient/Bread: bread
+    Style: style
+    Style/Pesto: pesto
+    Dinner Plans: plans
 
 extra_css:
   - stylesheets/recipes.css

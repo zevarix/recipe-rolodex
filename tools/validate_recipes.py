@@ -9,7 +9,14 @@ from html.parser import HTMLParser
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
-RECIPE_FILES = sorted(p for p in (DOCS / "recipes").rglob("*.md") if p.name != "index.md")
+FACET_PAGE_MAP = {
+    "by-course.md": "Course",
+    "by-meal.md": "Meal",
+    "by-ingredient.md": "Ingredient",
+    "by-style.md": "Style",
+}
+RECIPE_FILES = sorted(p for p in (DOCS / "recipes").rglob("*.md")
+                      if p.name not in FACET_PAGE_MAP and p.name != "index.md")
 DINNER_FILES = sorted(p for p in (DOCS / "dinners").rglob("*.md") if p.name != "index.md")
 COURSE_TAGS = {
     "Mains", "Sides", "Soups", "Salads", "Desserts",
@@ -199,12 +206,35 @@ for required in ("mkdocs.yml", "requirements.txt", "docs/stylesheets/recipes.css
 config = (ROOT / "mkdocs.yml").read_text(encoding="utf-8")
 if not re.search(r"(?m)^  - tags:\s*$", config) or "tags_hierarchy: true" not in config:
     errors.append("Zensical native tags plugin must be enabled")
-for page, directive in (
-    (DOCS / "recipes/index.md", "<!-- material/tags"),
-    (DOCS / "dinners/index.md", "<!-- material/tags"),
+for name, facet in FACET_PAGE_MAP.items():
+    path = DOCS / "recipes" / name
+    expected = "<!-- material/tags { scope: true, include: [" + facet + "] } -->"
+    if not path.is_file() or expected not in path.read_text(encoding="utf-8"):
+        errors.append(f"Missing native {facet} catalog in {path.relative_to(ROOT)}")
+    elif '??? abstract "' not in path.read_text(encoding="utf-8"):
+        errors.append(f"{path.relative_to(ROOT)}: category catalog must be collapsible")
+
+if "<!-- material/tags" in (DOCS / "recipes/index.md").read_text(encoding="utf-8"):
+    errors.append("Browse landing page must not contain the unbounded tag listing")
+if not (DOCS / "dinners/index.md").is_file() or "<!-- material/tags" not in (DOCS / "dinners/index.md").read_text(encoding="utf-8"):
+    errors.append("Missing native dinner-plan catalog")
+if "draft_docs: |" not in config or "/drafts/" not in config or "*.draft.md" not in config:
+    errors.append("Local preview-only draft patterns must be configured")
+ignored = (ROOT / ".gitignore").read_text(encoding="utf-8")
+if "docs/drafts/" not in ignored or "docs/**/*.draft.md" not in ignored:
+    errors.append("Public repository must ignore local draft sources")
+nav = config.split("nav:\n", 1)[-1].split("\ntheme:", 1)[0]
+for expected in (
+    "  - Recipes:",
+    "      - Browse recipes:",
+    "      - By course:",
+    "      - By mealtime:",
+    "      - By ingredient:",
+    "      - By style:",
+    "  - Dinner plans:",
 ):
-    if not page.is_file() or directive not in page.read_text(encoding="utf-8"):
-        errors.append(f"Missing auto-generated tag listing in {page.relative_to(ROOT)}")
+    if expected not in nav:
+        errors.append(f"Missing bounded navigation group {expected}")
 if "javascripts/recipe-tools.js" not in config:
     errors.append("Zensical configuration must load the recipe tools JavaScript")
 if not (DOCS / "javascripts/recipe-tools.js").is_file():

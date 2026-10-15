@@ -58,6 +58,26 @@
 [data-md-color-scheme="slate"] .hero-actions .hero-text-link { color:#d4ead6; }
 [data-md-color-scheme="slate"] .hero-actions .hero-text-link:hover { color:#f0bb8d; }
 @media (prefers-reduced-motion:reduce) { .hero-actions a, .hero-actions a span { transition:none !important; } }
+/* Native collapsible tag catalogs stay compact and readable on mobile. */
+.md-typeset details.abstract {
+  border: 1px solid var(--rr-border);
+  border-radius: .75rem;
+  background: var(--rr-paper);
+  box-shadow: none;
+  margin: .85rem 0 1.5rem;
+  overflow: clip;
+}
+.md-typeset details.abstract > summary {
+  color: var(--rr-brown);
+  background: var(--rr-cream);
+  font-weight: 700;
+}
+.md-typeset details.abstract > summary:focus-visible {
+  outline: 2px solid var(--rr-copper);
+  outline-offset: -3px;
+}
+.md-typeset [id^="tag:"] { scroll-margin-top: 4rem; }
+
 .section-eyebrow { margin-top: 1.9rem; }
 .recipe-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,13.6rem),1fr)); gap:.82rem; margin:1.1rem 0 2rem; }
 .recipe-grid .recipe-card {
